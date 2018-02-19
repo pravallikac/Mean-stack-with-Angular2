@@ -1,0 +1,37 @@
+<h1 class="Page-header">Login Page</h1>
+
+<div class="row show-hide-message">
+
+    <div [ngClass]="messageClass">
+        {{message}}
+    </div>
+    
+</div>
+
+<!--formGroup is a reactive form directive that takes an existing FormGroup instance and associates it with an HTML element-->
+<form [formGroup]="LoginForm" (submit)="onLoginSubmit()">
+ <div class="form-group">
+    <label for="username">Username</label>
+    <div [ngClass]="{'has-error':(LoginForm.controls.username.errors && LoginForm.controls.username.dirty),
+                   'has-success':!LoginForm.controls.username.errors}">  
+        <input type="text" class="form-control" name="username" placeholder="Username" formControlName="username">
+        <ul class="help-block">
+            <li *ngIf="LoginForm.controls.username.errors?.required && LoginForm.controls.username.dirty">This Field is required</li>
+                
+        </ul>
+     </div>    
+  </div>    
+  
+  <div class="form-group">
+    <label for="password">Password</label>
+      <div [ngClass]="{'has-error':(LoginForm.controls.password.errors && LoginForm.controls.password.dirty),
+                   'has-success':!LoginForm.controls.password.errors}">
+        <input type="password" class="form-control" name="password" placeholder="Password" formControlName="password">
+        <ul class="help-block">
+            <li *ngIf="LoginForm.controls.password.errors?.required && LoginForm.controls.password.dirty">This Field is required</li> 
+        </ul>
+      </div>      
+  </div>
+
+  <button [disabled]="!LoginForm.valid ||processing" type="submit" class="btn btn-primary" value="Login">Submit</button>
+</form>    

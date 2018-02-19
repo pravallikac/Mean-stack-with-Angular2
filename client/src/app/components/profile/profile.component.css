@@ -1,0 +1,12 @@
+a:visited,{
+    background-color: white;
+   color: black;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-top: 5px;    
+}
+
+
+

@@ -1,0 +1,75 @@
+<h1 class="Page-header">Register Page</h1>
+
+<div class="row show-hide-message">
+
+    <div [ngClass]="messageClass">
+        {{message}}
+    </div>
+    
+</div>
+
+<!--formGroup is a reactive form directive that takes an existing FormGroup instance and associates it with an HTML element-->
+<form [formGroup]="RegisterForm" (submit)="onRegisterSubmit()">
+ <div class="form-group">
+    <label for="username">Username</label>
+    <div [ngClass]="{'has-error':(RegisterForm.controls.username.errors && RegisterForm.controls.username.dirty),
+                   'has-success':!RegisterForm.controls.username.errors}">  
+        <input type="text" class="form-control" name="username" placeholder="Username" formControlName="username">
+        <ul class="help-block">
+            <li *ngIf="RegisterForm.controls.username.errors?.required && RegisterForm.controls.username.dirty">This Field is required</li>
+            
+            
+                <li *ngIf="(RegisterForm.controls.username.errors?.minlength || RegisterForm.controls.username.errors?.maxlength) && RegisterForm.controls.username.dirty">Minimum characters: 3 and Maximum is: 15</li>
+                <li *ngIf="RegisterForm.controls.username.errors?.validateUsername && RegisterForm.controls.username.dirty">username must not have special characters</li>
+                
+        </ul>
+     </div>    
+  </div>    
+  <div class="form-group">
+    <label for="email">Email address</label>
+<!-- We are using the ngClass directive to conditionally add a class to our div if the form is invalid -->
+
+   <div [ngClass]="{'has-error':(RegisterForm.controls.email.errors && RegisterForm.controls.email.dirty),
+                   'has-success':!RegisterForm.controls.email.errors}">  
+       <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email"/>
+            
+        <ul class="help-block">
+            <li *ngIf="RegisterForm.controls.email.errors?.required && RegisterForm.controls.email.dirty">This Field is required</li> 
+                <li *ngIf="(RegisterForm.controls.email.errors?.minlength || RegisterForm.controls.email.errors?.maxlength )&& RegisterForm.controls.email.dirty">Minimum characters: 5 and Maximum is: 30</li>
+                <li *ngIf="RegisterForm.controls.email.errors?.validateEmail && RegisterForm.controls.email.dirty">Enter valid Email</li>
+        </ul>
+   </div>        
+  </div>
+  
+  <div class="form-group">
+    <label for="password">Password</label>
+      <div [ngClass]="{'has-error':(RegisterForm.controls.password.errors && RegisterForm.controls.password.dirty),
+                   'has-success':!RegisterForm.controls.password.errors}">
+        <input type="password" class="form-control" name="password" placeholder="Password" formControlName="password">
+        <ul class="help-block">
+            <li *ngIf="RegisterForm.controls.password.errors?.required && RegisterForm.controls.password.dirty">This Field is required</li> <li *ngIf="RegisterForm.controls.password.errors?.minlength || RegisterForm.controls.password.errors?.maxlength && RegisterForm.controls.password.dirty">Minimum characters: 3 and Maximum is: 10</li> 
+        </ul>
+      </div>      
+  </div>
+    <div class="form-group">
+    <label for="confirm">Confirm Password</label>
+      <div [ngClass]="{'has-error':(RegisterForm.controls.confirm.errors && RegisterForm.controls.confirm.dirty)||(RegisterForm.errors?.matchingPassword && RegisterForm.controls.confirm.dirty),
+                   'has-success':!RegisterForm.controls.confirm.errors && !RegisterForm.errors?.matchingPassword}">
+        <input type="password" class="form-control" name="confirm" placeholder="Confirm Password" formControlName="confirm">
+        <ul class="help-block">
+            <li *ngIf="RegisterForm.controls.confirm.errors?.required && RegisterForm.controls.confirm.dirty">This Field is required</li>
+            <li *ngIf="RegisterForm.errors?.matchingPassword && RegisterForm.controls.confirm.dirty">Passwords does not match</li>
+        </ul>  
+     </div>      
+  </div>
+     
+  
+  <button [disabled]="!RegisterForm.valid ||processing" type="submit" class="btn btn-primary">Submit</button>
+</form>
+<!--the username input needs the syntax formControlName=name in order to be associated with the correct FormControl in the class. This syntax tells Angular to look for the parent FormGroup, in this case RegisterForm, and then inside that group to look for a FormControl called username.-->
+
+<!--
+<p>Username:{{RegisterForm.controls.username.value}}</p>
+<p>email:{{RegisterForm.controls.email.value}}</p>
+<p>password:{{RegisterForm.controls.password.value}}</p>
+<p>confirm:{{RegisterForm.controls.confirm.value}}</p>-->

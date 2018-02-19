@@ -18,7 +18,15 @@
   },
   "homepage": "https://github.com/pravallikac/Mean-stack-with-Angular2#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
     "express": "^4.16.2",
+    "gulp": "^3.9.1",
+    "jsonwebtoken": "^8.1.1",
     "mongoose": "^5.0.1"
+  },
+  "devDependencies": {
+    "@angular/cli": "^1.6.5"
   }
 }

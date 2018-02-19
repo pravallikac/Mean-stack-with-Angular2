@@ -1,0 +1,115 @@
+<div role="main" class="right_col" style="min-height: 754px;">
+  <!-- top tiles-->
+  <div class="tile_count">
+    <div class="container">
+      <button (click)="ngOnInit()" class="btn btn-primary" style="float: right;">Refresh</button>
+    </div>
+    <div id="exTab2" class="container">
+      <ul class="nav nav-tabs">
+        <!--<li><img src="../../images/SONAR.png" alt="sonar image" class="sonar1"/></li>
+        <li>
+          <h2>Sonarqube</h2>
+        </li>-->
+        <li class="active"><a href="#1" data-toggle="tab">Projects</a></li>
+        <li><a href="#2" data-toggle="tab">Issues</a></li>
+        <li><a href="#3" data-toggle="tab">Measures</a></li>
+        <li><a href="#4" data-toggle="tab">Quality Gates</a></li>
+        <li><a href="#5" data-toggle="tab">Activity</a></li>
+        <li><a href="#6" data-toggle="tab">Duplications</a></li>
+        <li><a href="#7" data-toggle="tab">Version</a></li>
+        <li><a href="#8" data-toggle="tab">Last Analysis</a></li>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="dropdown-toggle" href="#9" data-toggle="tab">Actions<span class="caret"></span></a>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#lang" data-toggle="tab">Language</a></li>
+            <li> <a class="dropdown-item" href="#temp" data-toggle="tab"> Template</a></li>
+            <li> <a class="dropdown-item"href="#crule" data-toggle="tab">Custom Rule</a></li>
+          </div>
+        </div>
+        <!--
+                <li class="dropdown"><a class="dropdown-toggle" href="#9" data-toggle="tab">
+                  <div class="dropdown">
+                    Actions<span class="caret"></span>
+                    <div class="dropdown-content">
+                     <ul>
+                        <li><a href="#lang" data-toggle="tab">Language</a></li>
+                        <li><a href="#temp" data-toggle="tab">Template</a></li>
+                        <li><a href="#crule" data-toggle="tab">Custom Rule</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </a>
+                </li>
+        -->
+
+      </ul>
+      <div class="tab-content">
+        <div id="1" class="tab-pane active">
+          <h2>tab 1 </h2>
+        </div>
+        <div id="2" class="tab-pane">
+          <h2>tab 2</h2>
+        </div>
+
+        <div id="3" class="tab-pane">
+          <p> Measures</p>
+        </div>
+        <div id="4" class="tab-pane">
+          <h3>quality Gates</h3>
+        </div>
+        <div id="5" class="tab-pane">
+          <h3>tab 5</h3>
+        </div>
+        <div id="6" class="tab-pane">
+          <h3>tab 6</h3>
+        </div>
+        <div id="7" class ="tab-pane">
+          <h3>tab 7</h3>
+        </div>
+        <div id="8" class="tab-pane">
+          <h3>tab 8</h3>
+        </div>
+        <div id="9" class="tab-pane">
+          <div  class="tab-content">
+            <div id="lang" class="tab-pane center">
+              <h4>lang tab</h4>
+              <div class="form-group col-md-1">
+                <label for="name">Name:</label>
+              </div>
+              <div class="form-group col-md-3">
+                <input class="form-control" name="name" id="name" >
+              </div>
+              <div class = "clearfix"></div>
+
+              <div class="form-group col-md-1">
+                <label for="key">key:</label>
+              </div>
+
+              <div class="form-group col-md-3">
+                <input class="form-control" name="key" id="key" >
+              </div>
+              <div class = "clearfix"></div>
+
+              <div class="form-group col-md-1">
+                <label for="description">description:</label>
+              </div>
+              <div class="form-group col-md-3">
+                <textarea  class="form-control" name="description" id="description" ></textarea>
+              </div>
+
+            </div>
+            <div id="temp" class="tab-pane">
+              <h4>temp tab</h4>
+            </div>
+            <div id="crule" class="tab-pane">
+              <h4>crule tab</h4>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
